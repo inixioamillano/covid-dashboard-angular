@@ -4,11 +4,11 @@ Para ejecutar el proyecto necesitas [Angular CLI](https://github.com/angular/ang
 
 ## Servidor en desarrollo
 
-Ejecuta `ng serve` y navega a `http://localhost:4200/`. La app se recargará automáticamnete si hay casos. Antes de la primera ejecución ejecuta `npm install'
+Ejecuta `ng serve` y navega a `http://localhost:4200/`. La app se recargará automáticamnete si hay cambios. Antes de la primera ejecución ejecuta `npm install'
 
 ## Build
 
-RunEjecuta `ng build` para obtener la versión de despliegue. La versión de despliegue se guardará en la carpeta `dist/`. Usa `ng build --prod` para obtener una versión de despliegue en producción.
+Ejecuta `ng build` para obtener la versión de despliegue. La versión de despliegue se guardará en la carpeta `dist/`. Usa `ng build --prod` para obtener una versión de despliegue en producción.
 
 ## Autor
 
