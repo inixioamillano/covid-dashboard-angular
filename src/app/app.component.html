@@ -1,0 +1,80 @@
+<nav class="navbar navbar-light gradient fixed-top">
+  <a class="navbar-brand mb-0 h1" href="#">Dashboard Covid-19</a>
+</nav>
+<div class="container">
+  <div *ngIf="loading; else dashboard">
+    <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '3px' }"></ngx-loading>
+  </div>
+  <ng-template #dashboard>
+    <div class="row" *ngIf="zonas.length > 1">
+      <div class="col-sm  selector">
+        <label for="seleccionarzona">Zona básica de salud:</label>
+        <select id="seleccionarzona"  class="browser-default custom-select" (change)="cambiarZona($event.target.value)" name="seleccionarzona" [(ngModel)]="zonaSeleccionada">
+          <option [value]="zona.code" *ngFor="let zona of zonas">{{zona.nombre}}</option>
+        </select>
+    </div>
+    </div>
+    <div class="row">
+      <div class="col-sm dato">
+        <dato *ngIf="hoy" nombre="Infectados último día" [numero]="hoy.infectadosHoy" [diferencia]="hoy.infectadosHoy - ayer.infectadosHoy" [mostrarIncremento]="true"></dato>    
+      </div>
+      <div class="col-sm dato">
+        <dato *ngIf="hoy" nombre="IA 14 días/100.000 habitantes" [mostrarIncremento]="true" [numero]="hoy.ia14 | number: '1.2-2'" [diferencia]="hoy.ia14 - ayer.ia14"></dato>
+      </div>
+      <div class="col-sm dato">
+        <dato *ngIf="hoy" nombre="Contagios totales (incluye altas)" [mostrarIncremento]="false" [numero]="hoy.acumulados" [diferencia]="hoy.infectadosHoy - ayer.infectadosHoy"></dato>
+      </div>
+    </div>
+    <p class="text-center" style="margin-top: 20px;">Actualizado {{hoy.createdAt | haceTiempo}}</p>
+    <div class="row justify-content-center"  *ngIf="Pwa.promptEvent" (click)="installPwa()">   
+      <button class="gradient btn">
+        Crear acceso directo
+      </button>
+    </div>
+    <hr/>
+    <h3 class="text-center">Gráficos</h3>
+    <div class="row justify-content-center">
+      <div class="col-sm col-sm-12 col-md-8 chart">
+        <div class="card">
+          <highcharts-chart 
+            [Highcharts]="Highcharts"
+            [options]="IncidenciaAcumuladaOptions"
+          ></highcharts-chart>
+        </div>
+      </div>
+      <div class="col-sm col-sm-12 col-md-4 chart">
+        <div class="card"> 
+          <highcharts-chart 
+            [Highcharts]="Highcharts"
+            [options]="AcumuladosOptions"
+          ></highcharts-chart>
+        </div>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-sm col-sm-12 col-md-4 chart">
+        <div class="card">
+          <highcharts-chart
+            [Highcharts]="Highcharts"
+            [options]="MensualOptions"
+          ></highcharts-chart>
+        </div>
+      </div>
+      <div class="col-sm col-sm-12 col-md-8 chart">
+        <div class="card">
+          <highcharts-chart 
+            [Highcharts]="Highcharts"
+            [options]="DiariosOptions"
+          ></highcharts-chart>
+        </div>
+      </div>
+    </div>
+    <hr/>
+    <div class="row">
+      <div class="col-sm col-sm-12 col-md-12">
+        <h3 class="text-center">Evolución en los últimos 30 días</h3>
+        <tabla [datos]="datos"></tabla>
+      </div>
+    </div>  
+  </ng-template>
+</div>

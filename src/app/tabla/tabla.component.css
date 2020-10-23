@@ -1,0 +1,19 @@
+.warning {
+    background-color: #ff6961;
+}
+tr:nth-child(even) {
+    background-color: white;
+}
+
+
+table, th, td {
+    border: 1px solid black;
+}
+
+th {
+    color: black
+}
+
+tr:nth-child(-n+15) {
+    font-weight: bold;
+}

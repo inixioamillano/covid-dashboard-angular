@@ -1,0 +1,6 @@
+<div class="card gradient">
+    <div class="card-body text-center">
+      <h5 class="card-title"><fa-icon *ngIf="mostrarIncremento" [icon]="icono"  [ngClass]="diferencia > 0 ? 'red-icon': diferencia < 0 ? 'green-icon' : 'black-icon'"></fa-icon> {{numero}}</h5>
+      <h6 class="card-text">{{nombre}}</h6>
+    </div>
+  </div>

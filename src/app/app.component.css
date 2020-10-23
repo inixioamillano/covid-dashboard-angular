@@ -1,0 +1,16 @@
+.container {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.chart {
+    margin-bottom: 20px;
+}
+
+.dato, .selector {
+    margin-top: 20px;
+}
+
+.contrast-link {
+    color: black;
+}

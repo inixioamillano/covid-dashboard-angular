@@ -1,0 +1,17 @@
+<p class="text-center">En negrita: últimos 14 días<br/>En rojo: IA 7 > 250 y IA 14 > 500</p>
+<table style="width: 100%" class="text-center">
+    <tr class="gradient">
+        <th>Fecha</th>
+        <th>Nuevos casos</th>
+        <th>Casos acumulados</th>
+        <th>IA 7</th>
+        <th>IA 14</th>
+    </tr>
+    <tr *ngFor="let dato of datos.slice(-30).reverse()">
+        <td>{{dato.fecha | date: 'd/MM'}}</td>
+        <td>{{dato.infectadosHoy}}</td>
+        <td>{{dato.acumulados}}</td>
+        <td [ngClass]="dato.ia7 > 250 ? 'warning' : 'not-warning'">{{dato.ia7 | number: '1.2-2'}}</td>
+        <td [ngClass]="dato.ia14 > 500 ? 'warning' : 'not-warning'">{{dato.ia14.toFixed(2)}}</td>
+    </tr>
+</table>
