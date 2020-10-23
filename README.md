@@ -4,7 +4,11 @@ Para ejecutar el proyecto necesitas [Angular CLI](https://github.com/angular/ang
 
 ## Servidor en desarrollo
 
-Ejecuta `ng serve` y navega a `http://localhost:4200/`. La app se recargará automáticamnete si hay cambios. Antes de la primera ejecución ejecuta `npm install'
+Ejecuta `ng serve` y navega a `http://localhost:4200/`. La app se recargará automáticamnete si hay cambios. Antes de la primera ejecución ejecuta `npm install`
+
+## Demo
+
+Puedes encontrar el proyecto funcionando en [Datos Covid | Navarra](https://covidnavarra.herokuapp.com)
 
 ## Build
 
